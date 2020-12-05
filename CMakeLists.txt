@@ -4,11 +4,6 @@ if (UNIX AND POLICY CMP0072)
 	# In case of both legacy and glvnd OpenGL libraries found. Prefer GLVND
 	cmake_policy(SET CMP0072 NEW)
 endif()
-
-if (UNIX AND POLICY CMP0072)
-	# In case of both legacy and glvnd OpenGL libraries found. Prefer GLVND
-	cmake_policy(SET CMP0072 NEW)
-endif()
 if( APPLE AND POLICY CMP0068 )
         cmake_policy(SET CMP0068 NEW)
 endif()
