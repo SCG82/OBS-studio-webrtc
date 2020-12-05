@@ -13,7 +13,6 @@
 #include "common_video/libyuv/include/webrtc_libyuv.h"
 #include "pc/rtc_stats_collector.h"
 #include "rtc_base/checks.h"
-#include "rtc_base/critical_section.h"
 #include <libyuv.h>
 
 #include <algorithm>
@@ -827,7 +826,7 @@ void WebRTCStream::getStats()
 
 rtc::scoped_refptr<const webrtc::RTCStatsReport> WebRTCStream::NewGetStats()
 {
-    rtc::CritScope lock(&crit_);
+    webrtc::MutexLock lock(&mutex_);
 
     if (nullptr == pc) {
       return nullptr;
