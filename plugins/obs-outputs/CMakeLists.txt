@@ -105,7 +105,7 @@ message( STATUS "Looking for libwebrtc" )
 find_package(LibWebRTC 84 QUIET COMPONENTS H264 )
   if( NOT libwebrtc_FOUND )
     # A FindLibWebRTC package is also provided in the repository for self-compiled libwebrtc
-    find_package(LibWebRTC REQUIRED)
+    find_package(WebRTC REQUIRED)
   endif()
 message( STATUS "Looking for libwebrtc - found" )
 if( WEBRTC_H264_FOUND )
@@ -245,6 +245,7 @@ target_link_libraries(obs-outputs
 	websocketclient
 	${MBEDTLS_LIBRARIES}
 	${WEBRTC_LIBRARIES}
+	WebRTC::WebRTC
 	${ZLIB_LIBRARIES}
 	${ftl_IMPORTS}
 	${obs-outputs_PLATFORM_DEPS})
